@@ -1,0 +1,17 @@
+<div class="row" *ngIf="item">
+  <div class="col s12 m6 offset-m3">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Сотрудник № {{item.id}}</span>
+        <p>{{item.status ? 'Работает в отделе ' + item.deportment + ' на должности': 'Уволен из отдела ' + item.deportment + ' с должности'}}  {{item.position}}</p>
+      </div>
+      <div class="card-action">
+        <a href="tel: {{item.phone_number}}">{{item.phone_number}}</a>
+        <a class="right">{{item.datePerson}}</a>
+        <div class="row btn-del">
+          <a class="waves-effect waves-light btn col s12 m6 offset-m3 red lighten-1" routerLink="/" (click)="delete(item.id)"><i class="material-icons left">delete</i>Удалить сотрудника</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

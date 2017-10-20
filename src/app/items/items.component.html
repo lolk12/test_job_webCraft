@@ -1,0 +1,9 @@
+
+<div class="collection collection with-header item" >
+  <a [routerLink]="['item',pers.id]" class="collection-item" *ngFor="let pers of http.person">
+      {{ pers.lastName + ' ' + pers.firstName + ' ' + pers.surname }}
+      <span class="new badge" [attr.data-badge-caption] = "pers.status ? 'Работает': 'Уволен' " [ngClass]="{red : !pers.status}"></span>
+  </a>
+</div>
+
+
