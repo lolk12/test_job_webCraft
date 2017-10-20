@@ -1,4 +1,55 @@
 
+<div class="row">
+    <form class="col s12 m6 offset-m3" (ngSubmit)="addPerson(formControl)" #formControl="ngForm">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="first_name" name="first_name" type="text" class="validate" [(ngModel)]="person.firstName" required>
+                <label for="first_name">Имя</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="last_name" type="text" class="validate" name="last_name" ngModel required>
+                <label for="last_name">Фамилия</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="surname" type="text" class="validate" name="surname" ngModel>
+                <label for="surname">Отчество</label>
+            </div>
+            <div class="input-field col s12">
+                <span>Дата рождения</span><input id="date" [ngModel]="person.datePerson | date:'yyyy-MM-dd'" (ngModelChange)="person.datePerson = $event" type="date" name="datePerson">
+            </div>
+            <label >Статус сотрудника</label>
+            <div class="switch ">
+                <label>
+                    Уволен
+                    <input type="checkbox" ngModel required name="status">
+                    <span class="lever"></span>
+                    Работает
+                </label>
+            </div>
+            <div class="input-field col s12">
+                <input id="deportment" type="text" class="validate" ngModel required name="deportment">
+                <label for="deportment">Отделение</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="position" type="text" class="validate" ngModel required name="position">
+                <label for="position">Должность</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="phone_number" type="text" class="validate" ngModel required name="phone_number">
+                <label for="phone_number">Номер телефона</label>
+            </div>
+            <div class="center">
+                <button class="waves-effect waves-light btn" title="Добавить сотрудника">Добавить</button>
+            </div>
+
+
+
+
+        </div>
+    </form>
+</div>
+
+
 <div class="collection collection with-header item" >
   <a [routerLink]="['item',pers.id]" class="collection-item" *ngFor="let pers of http.person">
       {{ pers.lastName + ' ' + pers.firstName + ' ' + pers.surname }}
