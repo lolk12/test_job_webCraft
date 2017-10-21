@@ -17,10 +17,12 @@ export class ItemsComponent implements OnInit {
         this.getDataServer();
     }
     addPerson (form) {
-        this.person['id'] = this.http.person[this.http.person.length - 1].id + 1;
-        this.http.person.push(this.person);
-        this.http.setData(this.person);
-        this.person = {};
+        if (form.valid) {
+            this.person['id'] = this.http.person[this.http.person.length - 1].id + 1;
+            this.http.person.push(this.person);
+            this.http.setData(this.person);
+            this.person = {};
+        }
     }
     getDataServer () {
         this.http.getData().subscribe(
