@@ -17,19 +17,10 @@ export class ItemsComponent implements OnInit {
         this.getDataServer();
     }
     addPerson (form) {
-        const formPerson = {
-            firstName: form.value.first_name,
-            lastName: form.value.last_name,
-            surname: form.value.surname,
-            datePerson: form.value.datePerson,
-            status: form.value.status,
-            position: form.value.position,
-            deportment: form.value.deportment,
-            phone_number: form.value.phone_number,
-            id: this.http.person[this.http.person.length-1].id + 1
-        };
-        this.http.person.push(formPerson);
-        this.http.setData(formPerson);
+        this.person['id'] = this.http.person[this.http.person.length - 1].id + 1;
+        this.http.person.push(this.person);
+        this.http.setData(this.person);
+        this.person = {};
     }
     getDataServer () {
         this.http.getData().subscribe(
